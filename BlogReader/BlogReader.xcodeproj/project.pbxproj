@@ -14,6 +14,7 @@
 		AEB2B86F1BCE8C5100318C09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEB2B86E1BCE8C5100318C09 /* Assets.xcassets */; };
 		AEB2B8721BCE8C5100318C09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEB2B8701BCE8C5100318C09 /* LaunchScreen.storyboard */; };
 		AEB2B87B1BCEB18500318C09 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB2B87A1BCEB18500318C09 /* TableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		AEB2B87E1BCEF88D00318C09 /* BlogPost.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB2B87D1BCEF88D00318C09 /* BlogPost.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		AEB2B8731BCE8C5100318C09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEB2B8791BCEB18500318C09 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		AEB2B87A1BCEB18500318C09 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		AEB2B87C1BCEF88D00318C09 /* BlogPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogPost.h; sourceTree = "<group>"; };
+		AEB2B87D1BCEF88D00318C09 /* BlogPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogPost.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +75,8 @@
 				AEB2B8701BCE8C5100318C09 /* LaunchScreen.storyboard */,
 				AEB2B8731BCE8C5100318C09 /* Info.plist */,
 				AEB2B8621BCE8C5100318C09 /* Supporting Files */,
+				AEB2B87C1BCEF88D00318C09 /* BlogPost.h */,
+				AEB2B87D1BCEF88D00318C09 /* BlogPost.m */,
 			);
 			path = BlogReader;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 			files = (
 				AEB2B86A1BCE8C5100318C09 /* ViewController.m in Sources */,
 				AEB2B8671BCE8C5100318C09 /* AppDelegate.m in Sources */,
+				AEB2B87E1BCEF88D00318C09 /* BlogPost.m in Sources */,
 				AEB2B8641BCE8C5100318C09 /* main.m in Sources */,
 				AEB2B87B1BCEB18500318C09 /* TableViewController.m in Sources */,
 			);

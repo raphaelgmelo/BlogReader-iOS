@@ -10,6 +10,6 @@
 
 @interface TableViewController : UITableViewController
 
-@property (nonatomic, strong) NSArray *blogPost;
+@property (nonatomic, strong) NSMutableArray *blogPosts;
 
 @end

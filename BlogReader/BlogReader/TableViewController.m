@@ -7,6 +7,7 @@
 //
 
 #import "TableViewController.h"
+#import "BlogPost.h"
 
 @interface TableViewController ()
 
@@ -24,8 +25,25 @@
     NSError *error = nil;
     
     NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+    
+    self.blogPosts = [NSMutableArray array];
+    
+    NSArray *blogPostArray = [dataDictionary objectForKey:@"posts"];
+    
+    for (NSDictionary *bpDictionary in blogPostArray) {
         
-    self.blogPost = [dataDictionary objectForKey:@"posts"];
+        // for each json blog post, create object and put in blog posts
+        
+        BlogPost *blogPost = [BlogPost blogPostWithTitle:[bpDictionary objectForKey:@"title"]];
+        
+        blogPost.author = [bpDictionary objectForKey:@"author"];
+        blogPost.thumbnail = [bpDictionary objectForKey:@"thumbnail"];
+        blogPost.date = [bpDictionary objectForKey:@"date"];
+        
+        [self.blogPosts addObject:blogPost];
+    }
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,7 +53,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.blogPost.count;
+    return self.blogPosts.count;
 }
 
 
@@ -43,10 +61,20 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    NSDictionary *post = self.blogPost[indexPath.row];
+    BlogPost *post = self.blogPosts[indexPath.row];
     
-    cell.textLabel.text = [post valueForKey:@"title"];
-    cell.detailTextLabel.text = [post valueForKey:@"author"];
+    cell.textLabel.text = post.title;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", post.author, post.date];
+    
+    if ( [post.thumbnail isKindOfClass:[NSString class]] ){
+        NSData *imageData = [NSData dataWithContentsOfURL:post.thumbnailURL];
+        UIImage *image = [UIImage imageWithData:imageData];
+    
+        cell.imageView.image = image;
+    }
+    else{
+        cell.imageView.image = [UIImage imageNamed:@"placeholder.png"];
+    }
     
     return cell;
 }
