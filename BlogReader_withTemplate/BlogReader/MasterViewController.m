@@ -29,19 +29,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Segues
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        NSDate *object = self.objects[indexPath.row];
-//        DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
-//        [controller setDetailItem:object];
-//        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
-//        controller.navigationItem.leftItemsSupplementBackButton = YES;
-    }
-}
-
 #pragma mark - Table View
 
 // this is not necessary when returning 1
@@ -63,6 +50,26 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
+}
+
+#pragma mark - Segues
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        
+        NSString *title = self.titlesArray[indexPath.row];
+        
+        DetailViewController *controller =
+                (DetailViewController *)[[segue destinationViewController]   topViewController];
+        [controller setDetailItem:title];
+        
+        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
+        controller.navigationItem.leftItemsSupplementBackButton = YES;
+        
+    }
 }
 
 @end
