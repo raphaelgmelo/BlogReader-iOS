@@ -64,7 +64,7 @@
     BlogPost *post = self.blogPosts[indexPath.row];
     
     cell.textLabel.text = post.title;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", post.author, post.date];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - %@", post.author, [post formattedDate]];
     
     if ( [post.thumbnail isKindOfClass:[NSString class]] ){
         NSData *imageData = [NSData dataWithContentsOfURL:post.thumbnailURL];

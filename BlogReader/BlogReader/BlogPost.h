@@ -23,4 +23,6 @@
 
 - (NSURL *) thumbnailURL;
 
+- (NSString *) formattedDate;
+
 @end
