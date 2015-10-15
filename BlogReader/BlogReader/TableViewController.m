@@ -7,6 +7,7 @@
 //
 
 #import "TableViewController.h"
+#import "WebViewController.h"
 #import "BlogPost.h"
 
 @interface TableViewController ()
@@ -80,14 +81,18 @@
     return cell;
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if ( [segue.identifier isEqualToString:@"showBlogPost"] ){
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        BlogPost *post = self.blogPosts[indexPath.row];
+        
+        WebViewController *wvc = (WebViewController * )segue.destinationViewController;
+        wvc.blogPostURL = post.url;
+    }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    BlogPost *post = self.blogPosts[indexPath.row];
-    
-    UIApplication *application = [UIApplication sharedApplication];
-    [application openURL:post.url];
-    
 }
+
 
 @end
